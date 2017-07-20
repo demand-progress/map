@@ -28,7 +28,7 @@ export function computeFilteredEvents(events, filters, zipcodes) {
       // in ActionKit, with this one exception, the is_official
       // boolean field, so we will just pretend it is a category.
       if (event.is_official) {
-        eventCategories.push('aclu');
+        eventCategories.push('teamInternet');
       }
 
       if (!eventCategories.length) {

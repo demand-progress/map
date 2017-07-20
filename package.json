@@ -1,7 +1,7 @@
 {
   "name": "map",
   "version": "1.0.0",
-  "description": "ACLU People Power Map",
+  "description": "Team Internet event map",
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --env=dev --hot --host 0.0.0.0",
@@ -9,20 +9,20 @@
     "build": "npm run clean; webpack --env=prod --colors",
     "clean": "rm -rf dist",
     "dist:server": "./scripts/dist_server.sh",
-    "dev-deploy": "aws s3 sync dist/ s3://mapstaging",
-    "prod-deploy": "aws s3 sync dist/ s3://map.peoplepower.org",
+    "dev-deploy": "aws s3 sync dist/ s3://teaminternet-map-staging --profile dp",
+    "prod-deploy": "aws s3 sync dist/ s3://teaminternet-map-prod --profile dp",
     "git-deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aclu-people-power/map.git"
+    "url": "git+https://github.com/demand-progress/map.git"
   },
-  "author": "ACLU",
+  "author": "Demand Progress",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/aclu-people-power/map/issues"
+    "url": "https://github.com/demand-progress/map/issues"
   },
-  "homepage": "https://github.com/aclu-people-power/map#readme",
+  "homepage": "https://github.com/demand-progress/map#readme",
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",

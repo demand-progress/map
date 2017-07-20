@@ -2,7 +2,7 @@
   <div class="event-card inner-wrap">
     <div v-if="hasLabels" class="event-card-labels">
       <span v-if="event.is_official" class="event-card-label">
-        <i class="icon-star-full"></i> Official ACLU Event
+        <i class="icon-star-full"></i> Official Team Internet Event
       </span>
       <span v-for="label in categoryLabels" class="event-card-label">
         {{label}}
@@ -52,7 +52,7 @@ export default {
         .filter(Boolean);
     },
     url() {
-      return `https://go.peoplepower.org/event/${this.event.campaign}/${this.event.id}`;
+      return `https://act.demandprogress.org/event/${this.event.campaign}/${this.event.id}`;
     }
   }
 }

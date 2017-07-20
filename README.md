@@ -1,5 +1,5 @@
-## ACLU People Power event map
-More info coming soon...
+## Team Internet event map
+Forked from the ACLU People Power event map
 
 ## Dev Environment Setup
 Ensure you have node v6.10.2+ and yarn installed on your machine then run

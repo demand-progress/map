@@ -30,15 +30,15 @@ const store = new Vuex.Store({
     // We initialize eventTypes just with our "virtual" event type,
     // and the rest are loaded from the server
     eventTypes: {
-      aclu: "Official ACLU Event"
+      teamInternet: "Official Team Internet Event"
     }
   },
   actions: {
     loadEvents({commit}){
       xhr({
         method: 'GET',
-        url: '//d3r5pbxngwkvri.cloudfront.net/action_events_v2.json',
-        json: true,
+        url: 'https://s3.us-east-2.amazonaws.com/teaminternet-map-data/raw/teaminternet.json', // '//d3r5pbxngwkvri.cloudfront.net/action_events_v2.json',
+        json: true
       }, (err, response) => {
         if (err) return;
         commit('eventsReceived', response.body);
@@ -66,17 +66,18 @@ const store = new Vuex.Store({
   },
   mutations: {
     eventsReceived(state, events) {
+      console.log(state, events);
       // TEMP check events against list of also official event ids
       // doing this becase ETL isn't picking up some email domains
       // hack it up client-side
-      const alsoOfficialEventIds = [7928, 7929, 7930, 7931];
-      events.events.map(event => {
+      const alsoOfficialEventIds = [7928, 7929, 7930, 7931]; // TODO: change this?
+      events.map(event => {
         if (alsoOfficialEventIds.find(x => x == event.id)) {
           event.is_official = true;
         }
       });
 
-      state.events = events.events;
+      state.events = events;
 
       const newEventTypes = Object.entries(events.categories).reduce((result, [category, { label }]) => {
         result[category] = label;
