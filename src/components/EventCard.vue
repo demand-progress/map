@@ -52,7 +52,7 @@ export default {
         .filter(Boolean);
     },
     url() {
-      return `https://act.demandprogress.org/event/action/${this.event.id}`;
+      return `https://act.demandprogress.org/event/team-internet/${this.event.id}`;
     }
   }
 }
