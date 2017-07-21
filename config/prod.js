@@ -1,5 +1,6 @@
 const webpackMerge = require('webpack-merge');
 const commonConfig = require('./common.js');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -53,7 +54,10 @@ module.exports = function(env){
           collapseWhitespace: true,
           removeAttributeQuotes: true
         }
-      })
+      }),
+      new CopyWebpackPlugin([
+        { from: 'CNAME' },
+      ])
     ]
   })
 }
