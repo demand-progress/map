@@ -1,22 +1,6 @@
 .header {
-  background: $dark;
+  background: $team-internet-blue;
   text-align: center;
-
-  h3 {
-    text-align: center;
-    font-size: 55px;
-    letter-spacing: 1px;
-    margin: 0;
-    font-weight: bold;
-    background: -webkit-linear-gradient(#46baff,#6d69ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: #279cff;
-  }
-}
-
-.header-image {
-  height: 70px;
 }
 
 .inner-wrap {
@@ -42,7 +26,7 @@
   font-family: $accent-font;
   color: $white;
   margin: .2em 0;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .search-wrap {
@@ -206,7 +190,7 @@
       min-width: 6em;
 
       &:focus {
-        border-color: $aclu-blue;
+        border-color: $team-internet-blue;
       }
     }
     strong {
@@ -271,14 +255,7 @@
   }
 
   .branding {
-    padding: 1em;
     @include clearfix;
-  }
-
-  .cta {
-    color: $black;
-    margin: 0;
-    font-size: 1.5em;
   }
 
   .filter-events-date-picker {
@@ -287,6 +264,18 @@
         width: 6.5em;
       }
     }
+  }
+
+  .logo,
+  .cta {
+    float: left;
+    margin-right: 1em;
+  }
+
+  .cta {
+    /* Because of the font this requires a teeny tweak*/
+    position: relative;
+    top: 15px;
   }
 
   .toolbar {
