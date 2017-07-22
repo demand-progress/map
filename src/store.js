@@ -30,7 +30,12 @@ const store = new Vuex.Store({
     // We initialize eventTypes just with our "virtual" event type,
     // and the rest are loaded from the server
     eventTypes: {
-      teamInternet: "Official Team Internet Event"
+      organizing: "Organizing Meeting",
+      protestrally: "Protest/Rally",
+      representative: "Representative Event or Staff Office Hours",
+      senator: "Senator Event or Staff Office Hours",
+      townmeeting: "City/Town Council Meeting",
+      other: "Other"
     }
   },
   actions: {
@@ -66,7 +71,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     eventsReceived(state, events) {
-      console.log(state, events);
       // TEMP check events against list of also official event ids
       // doing this becase ETL isn't picking up some email domains
       // hack it up client-side
@@ -79,15 +83,16 @@ const store = new Vuex.Store({
 
       state.events = events;
 
-      const newEventTypes = Object.entries(events.categories).reduce((result, [category, { label }]) => {
-        result[category] = label;
-        return result;
-      }, {});
+      // XXX: havent figured out how to pull the event types from AK, so hardcoding in the state for now
+      // const newEventTypes = Object.entries(events.categories).reduce((result, [category, { label }]) => {
+      //   result[category] = label;
+      //   return result;
+      // }, {});
 
-      state.eventTypes = {
-        ...state.eventTypes,
-        ...newEventTypes,
-      };
+      // state.eventTypes = {
+      //   ...state.eventTypes,
+      //   ...newEventTypes,
+      // };
     },
     zipcodesReceived(state, zipcodes) {
       state.zipcodes = zipcodes;
