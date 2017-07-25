@@ -54,8 +54,8 @@
     }
   }
 
-  .logos-wrapper {
-
+  .logos {
+    width: 300px;
   }
 
   .privacy-policy {
@@ -78,7 +78,7 @@
     left: 0;
     position: fixed;
     background: transparent;
-    bottom: 1em;
+    bottom: 0em;
     height: auto;
     width: auto;
 
@@ -87,10 +87,6 @@
     .footer-buttons {
       margin: 0;
       max-width: 250px;
-    }
-
-    .logos-wrapper {
-      display: none;
     }
 
     .privacy-policy {
