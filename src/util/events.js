@@ -97,6 +97,7 @@ export function computeFilteredEvents(events, filters, zipcodes) {
   filteredEvents.sort((a, b) => {
     const aIsImportant = a.categories.indexOf('meeting') !== -1 ? 0 : 1;
     const bIsImportant = b.categories.indexOf('meeting') !== -1 ? 0 : 1;
+    console.log(a, aIsImportant, b, bIsImportant);
     return aIsImportant - bIsImportant;
   });
 
