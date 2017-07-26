@@ -2,6 +2,13 @@ import moment from 'moment';
 import distance from 'turf-distance';
 
 export function computeFilteredEvents(events, filters, zipcodes) {
+  // Put the meetings at the congressional offices at the top of the list
+  events.sort((a, b) => {
+    const aIsImportant = a.categories.indexOf('meeting') !== -1 ? 0 : 1;
+    const bIsImportant = b.categories.indexOf('meeting') !== -1 ? 0 : 1;
+    return aIsImportant - bIsImportant;
+  });
+
   // Bail out early if possible. Huge array!
   if (!Object.keys(filters).length) {
     return events;
@@ -92,14 +99,6 @@ export function computeFilteredEvents(events, filters, zipcodes) {
       return distanceFromA - distanceFromB;
     });
   }
-
-  // Put the meetings at the congressional offices at the top of the list
-  filteredEvents.sort((a, b) => {
-    const aIsImportant = a.categories.indexOf('meeting') !== -1 ? 0 : 1;
-    const bIsImportant = b.categories.indexOf('meeting') !== -1 ? 0 : 1;
-    console.log(a, aIsImportant, b, bIsImportant);
-    return aIsImportant - bIsImportant;
-  });
 
   return filteredEvents;
 }
