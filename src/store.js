@@ -43,6 +43,10 @@ const store = new Vuex.Store({
       sitin: "Sit-In",
       letters: "Submitting Letters to the Editor",
       visibility: "Visibility Event",
+      townhall: "Town Hall",
+      officehours: "Office Hours",
+      teletownhall: "Tele-Town Hall",
+      emptychairtownhall: "Empty Chair Town Hall",
       other: "Other"
     }
   },
