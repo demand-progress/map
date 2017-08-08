@@ -54,7 +54,7 @@ const store = new Vuex.Store({
     loadEvents({commit}){
       xhr({
         method: 'GET',
-        url: 'https://s3.us-east-2.amazonaws.com/teaminternet-map-data/raw/teaminternet.json', // '//d3r5pbxngwkvri.cloudfront.net/action_events_v2.json',
+        url: 'https://d22koylsc2kvhb.cloudfront.net/raw/teaminternet.json', // '//d3r5pbxngwkvri.cloudfront.net/action_events_v2.json',
         json: true
       }, (err, response) => {
         if (err) return;
@@ -83,16 +83,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     eventsReceived(state, events) {
-      // TEMP check events against list of also official event ids
-      // doing this becase ETL isn't picking up some email domains
-      // hack it up client-side
-      const alsoOfficialEventIds = [7928, 7929, 7930, 7931]; // TODO: change this?
-      events.map(event => {
-        if (alsoOfficialEventIds.find(x => x == event.id)) {
-          event.is_official = true;
-        }
-      });
-
       state.events = events;
 
       // XXX: havent figured out how to pull the event types from AK, so hardcoding in the state for now
