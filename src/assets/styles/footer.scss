@@ -14,7 +14,7 @@
   }
 
   a.btn {
-    margin: 1.5em 0.6em 0.3em 0.6em;
+    margin: 0.5em 0.6em 0.3em 0.6em;
     color: white;
     text-decoration: none;
     flex-grow: 1;
@@ -66,9 +66,7 @@
 }
 
 .event-map.-active ~ .footer {
-  position: fixed;
   background: transparent;
-  bottom: 1em;
   height: auto;
 }
 
@@ -82,7 +80,10 @@
     height: auto;
     width: auto;
 
-    .btn { font-size: 1.3em; }
+    .btn {
+      font-size: 1.3em;
+      margin: 1.5em 0.6em 0.3em 0.6em;
+    }
 
     .footer-buttons {
       margin: 0;
