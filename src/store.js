@@ -32,21 +32,21 @@ const store = new Vuex.Store({
     eventTypes: {
       meetinghouse: "MEETING AT CONGRESSIONAL OFFICE, HOUSE",
       meetingsenate: "MEETING AT CONGRESSIONAL OFFICE, SENATE",
-      canvassing: "Canvass/Door Knocking",
+      /*canvassing: "Canvass/Door Knocking",
       petitions: "Collecting Petitions",
       deliverhouse: "Delivery of Letters or Petitions to Elected Official, House",
       deliversenate: "Delivery of Letters or Petitions to Elected Official, Senate",
       signs: "Distribute Signs",
       dropinshouse: "Drop-ins at Congressional Office, House",
-      dropinssenate: "Drop-ins at Congressional Office, Senate",
-      protestrally: "Protest/Rally",
-      sitin: "Sit-In",
-      letters: "Submitting Letters to the Editor",
-      visibility: "Visibility Event",
-      townhall: "Town Hall",
+      dropinssenate: "Drop-ins at Congressional Office, Senate",*/
       officehours: "Office Hours",
+      protestrally: "Protest/Rally",
+      /*sitin: "Sit-In",
+      letters: "Submitting Letters to the Editor",*/
+      townhall: "Town Hall",
       teletownhall: "Tele-Town Hall",
       emptychairtownhall: "Empty Chair Town Hall",
+      visibility: "Visibility Event",
       other: "Other"
     }
   },
@@ -54,7 +54,7 @@ const store = new Vuex.Store({
     loadEvents({commit}){
       xhr({
         method: 'GET',
-        url: 'https://d22koylsc2kvhb.cloudfront.net/raw/teaminternet.json', // '//d3r5pbxngwkvri.cloudfront.net/action_events_v2.json',
+        url: 'https://d22koylsc2kvhb.cloudfront.net/raw/teaminternet.json',
         json: true
       }, (err, response) => {
         if (err) return;
