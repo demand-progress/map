@@ -27,6 +27,8 @@
   color: $white;
   margin: .2em 0;
   font-size: 2em;
+
+  p { display: none; }
 }
 
 .search-wrap {
@@ -275,8 +277,16 @@
   .cta {
     /* Because of the font this requires a teeny tweak*/
     position: relative;
-    top: 15px;
+    top: 0px;
     font-size: 3em;
+    text-align: left;
+
+    p {
+      margin: 0;
+      font-size: .5em;
+      display: block;
+      line-height: .5em;
+    }
   }
 
   .toolbar {

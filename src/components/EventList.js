@@ -36,7 +36,7 @@ export default function(store){
           !this.zipcodes[this.filters.zipcode];
       },
       noEventsText(){
-        return "No events matched that search."
+        return "No matching events. If there are no events in your area, please consider hosting one."
       },
       invalidZipcodeText() {
         return "Invalid zipcode."
