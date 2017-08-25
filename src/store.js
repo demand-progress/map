@@ -30,8 +30,8 @@ const store = new Vuex.Store({
     // We initialize eventTypes just with our "virtual" event type,
     // and the rest are loaded from the server
     eventTypes: {
-      meetinghouse: "MEETING AT CONGRESSIONAL OFFICE, HOUSE",
-      meetingsenate: "MEETING AT CONGRESSIONAL OFFICE, SENATE",
+      meetinghouse: "MEETING AT CONGRESSIONAL OFFICE",
+      //meetingsenate: "MEETING AT CONGRESSIONAL OFFICE, SENATE",
       /*canvassing: "Canvass/Door Knocking",
       petitions: "Collecting Petitions",
       deliverhouse: "Delivery of Letters or Petitions to Elected Official, House",
