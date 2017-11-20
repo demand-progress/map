@@ -55,6 +55,18 @@ module.exports = function(env){
           removeAttributeQuotes: true
         }
       }),
+      new HtmlWebpackPlugin({
+        filename: 'iframe.html',
+        template: './src/iframe.html.ejs',
+        inject: false,
+        favicon: './src/assets/favicon.ico',
+        hash: true,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true
+        }
+      }),
       new CopyWebpackPlugin([
         { from: 'CNAME' },
       ])
