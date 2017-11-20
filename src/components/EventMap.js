@@ -5,6 +5,8 @@ import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VubmV0aHBlbm5pbmd0b24iLCJhIjoiY2l6bmJ3MmFiMDMzZTMzbDJtdGxkM3hveSJ9.w4iOGaL2vrIvETimSXUXsw';
 
+var specialEventsIds = [1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382];
+
 export default function(store){
   return new Vue({
     el: '#event-map',
@@ -36,15 +38,18 @@ export default function(store){
       },
       geojsonEvents() {
         return geoJsonHelpers.featureCollection(
-          this.filteredEvents.map(event =>
-            geoJsonHelpers.point(
+          this.filteredEvents.map(event => {
+            var isSpecial = specialEventsIds.indexOf(event.id) !== -1;
+
+            return geoJsonHelpers.point(
               [event.lng, event.lat],
               {
                 id: event.id,
-                isOfficial: !!event.is_official
+                isOfficial: !!event.is_official,
+                icon: isSpecial ? "special-star" : "special-circle"
               }
             )
-          )
+          })
         );
       },
       view() {
@@ -140,10 +145,10 @@ export default function(store){
 
         const filteredEvents = this.filteredEvents;
         const eventTypes = this.eventTypes;
-        
+
         let eventCard = document.createElement("div");
         eventCard.className = "event-card-wrapper";
-        
+
         eventIds.forEach(function(eventId, i) {
           const vm = new Vue({
             template: '<event-card :event="event" :event-types="eventTypes"></event-card>',
@@ -161,9 +166,9 @@ export default function(store){
             eventCard.appendChild(document.createElement("hr"));
           }
         });
-        
+
         return eventCard;
-        
+
       },
 
       openPopupsOnClick() {
@@ -212,22 +217,38 @@ export default function(store){
 
         this.createEventsDataSource();
 
-        this.mapRef.addLayer({
-          id: 'points',
-          type: 'circle',
-          source: 'events',
-          paint: {
-            'circle-color': '#ff4b4d',
-            'circle-radius': 6,
-            'circle-stroke-width': 2,
-            'circle-stroke-color': 'white'
-          }
+        var self = this;
+
+        self.mapRef.loadImage('https://s3.us-east-2.amazonaws.com/teaminternet-map-prod/images/star-icon.png', function(error, image) {
+          if (error) throw error;
+          self.mapRef.addImage('special-star', image);
+
+          self.mapRef.loadImage('https://s3.us-east-2.amazonaws.com/teaminternet-map-prod/images/circle-icon.png', function(error, image) {
+            if (error) throw error;
+            self.mapRef.addImage('special-circle', image);
+
+            self.mapRef.addLayer({
+              id: 'points',
+              type: 'symbol',
+              source: 'events',
+              paint: {
+                // 'circle-color': '#ff4b4d',
+                // 'circle-radius': 6,
+                // 'circle-stroke-width': 2,
+                // 'circle-stroke-color': 'white'
+              },
+              layout: {
+                "icon-image": "{icon}",
+                "icon-allow-overlap": true
+              }
+            });
+
+            self.setCursorStyleOnHover();
+            self.openPopupsOnClick();
+
+            self.plotEvents();
+          });
         });
-
-        this.setCursorStyleOnHover();
-        this.openPopupsOnClick();
-
-        this.plotEvents();
       }
     },
 
