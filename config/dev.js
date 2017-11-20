@@ -21,6 +21,12 @@ module.exports = function(env) {
         template: './src/index.html.ejs',
         inject: false,
 				favicon: './src/assets/favicon.ico'
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'iframe.html',
+        template: './src/iframe.html.ejs',
+        inject: false,
+				favicon: './src/assets/favicon.ico'
       })
     ],
   })
