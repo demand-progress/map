@@ -7,7 +7,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import EventMap from 'components/EventMap';
 import EventList from 'components/EventList';
-
+import Iframe from 'components/Iframe';
 
 // Load events data
 store.dispatch('loadEvents')
@@ -24,6 +24,7 @@ store.dispatch('loadZips')
 Header(store);
 EventMap(store);
 EventList(store);
+Iframe(store);
 Footer();
 
 // Allow HMR updates
