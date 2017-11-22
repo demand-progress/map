@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import EventCard from 'src/components/EventCard';
 import geoJsonHelpers from 'turf-helpers';
 import mapboxgl from 'mapbox-gl';
 
@@ -33,22 +32,6 @@ export default function(store){
       },
       filteredEvents() {
         return store.getters.filteredEvents;
-      },
-      geojsonEvents() {
-        return geoJsonHelpers.featureCollection(
-          this.filteredEvents.map(event => {
-            var isSpecial = event.categories.indexOf('protest') !== -1;
-
-            return geoJsonHelpers.point(
-              [event.lng, event.lat],
-              {
-                id: event.id,
-                isOfficial: !!event.is_official,
-                icon: isSpecial ? "special-star" : "special-circle"
-              }
-            )
-          })
-        );
       },
       view() {
         return store.state.view;
