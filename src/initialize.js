@@ -21,10 +21,10 @@ setInterval(() => {store.dispatch('loadEvents')}, ONE_MINUTE);
 store.dispatch('loadZips')
 
 // Initialize Vue instances with the store.
+Iframe(store);
 Header(store);
 EventMap(store);
 EventList(store);
-Iframe(store);
 Footer();
 
 // Allow HMR updates
