@@ -40,7 +40,8 @@ const store = new Vuex.Store({
       dropinshouse: "Drop-ins at Congressional Office, House",
       dropinssenate: "Drop-ins at Congressional Office, Senate",*/
       officehours: "Office Hours",
-      protestrally: "Protest",
+      protestrally: "Protest at a Verizon store",
+      protestcongress: "Protest at a Congressional office",
       /*sitin: "Sit-In",
       letters: "Submitting Letters to the Editor",*/
       townhall: "Town Hall",
