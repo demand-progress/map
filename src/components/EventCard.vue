@@ -17,7 +17,7 @@
     <div class="event-card-venue">
       {{event.venue}}
     </div>
-    <div v-if="hasCapacity">
+    <div>
       <a class="btn event-card-cta" :href="url" target="_blank">RSVP</a>
     </div>
   </div>
