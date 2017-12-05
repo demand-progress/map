@@ -5,8 +5,6 @@ import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VubmV0aHBlbm5pbmd0b24iLCJhIjoiY2l6bmJ3MmFiMDMzZTMzbDJtdGxkM3hveSJ9.w4iOGaL2vrIvETimSXUXsw';
 
-var specialEventsIds = [1372, 1373, 1374, 1375, 1376, 1377, 1378, 1379, 1380, 1381, 1382];
-
 export default function(store){
   return new Vue({
     el: '#event-map-iframe',
@@ -39,7 +37,7 @@ export default function(store){
       geojsonEvents() {
         return geoJsonHelpers.featureCollection(
           this.filteredEvents.map(event => {
-            var isSpecial = specialEventsIds.indexOf(event.id) !== -1;
+            var isSpecial = event.categories.indexOf('protest') !== -1;
 
             return geoJsonHelpers.point(
               [event.lng, event.lat],
