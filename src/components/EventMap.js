@@ -3,7 +3,7 @@ import EventCard from 'src/components/EventCard';
 import geoJsonHelpers from 'turf-helpers';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoia2VubmV0aHBlbm5pbmd0b24iLCJhIjoiY2l6bmJ3MmFiMDMzZTMzbDJtdGxkM3hveSJ9.w4iOGaL2vrIvETimSXUXsw';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGVtYW5kcHJvZ3Jlc3MiLCJhIjoiY2piNzRzemptMnpnNjJxbzZhZnk0MWRtOCJ9.Mod93ifgDZyM70qjtEU5ZA';
 
 export default function(store){
   return new Vue({
