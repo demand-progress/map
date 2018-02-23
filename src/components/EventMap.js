@@ -6,10 +6,15 @@ import mapboxgl from 'mapbox-gl';
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVtYW5kcHJvZ3Jlc3MiLCJhIjoiY2piNzRzemptMnpnNjJxbzZhZnk0MWRtOCJ9.Mod93ifgDZyM70qjtEU5ZA';
 
 export default function(store){
+  var isIframe = location.href.endsWith('iframe.html')
+  var el = isIframe ?  "#event-map-iframe" : "#event-map"
+  var name = isIframe ? "event-map-iframe"  : "#event-map"
+  var template = isIframe ? require('src/templates/Iframe.html') : require('src/templates/EventMap.html')
+
   return new Vue({
-    el: '#event-map',
-    name: 'event-map',
-    template: require('src/templates/EventMap.html'),
+    el: el,
+    name: name,
+    template: template,
     store,
     data: {
       mapRef: null,
