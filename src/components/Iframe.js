@@ -44,7 +44,7 @@ export default function(store){
               {
                 id: event.id,
                 isOfficial: !!event.is_official,
-                icon: isSpecial ? "special-star" : "special-circle"
+                icon: isSpecial ?  "special-circle" : "special-star" 
               }
             )
           })

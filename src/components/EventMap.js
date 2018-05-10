@@ -38,13 +38,13 @@ export default function(store){
         return geoJsonHelpers.featureCollection(
           this.filteredEvents.map(event => {
             var isSpecial = event.categories.indexOf('protest') !== -1;
-
+              
             return geoJsonHelpers.point(
               [event.lng, event.lat],
               {
                 id: event.id,
                 isOfficial: !!event.is_official,
-                icon: isSpecial ? "special-star" : "special-circle"
+                icon: isSpecial ?  "special-circle" : "special-star" 
               }
             )
           })
